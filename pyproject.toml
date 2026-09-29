@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=75", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "consignai"
+version = "0.1.0"
+description = "Evidence-first intelligence for distributed and consigned inventory"
+requires-python = ">=3.12"
+license = "Apache-2.0"
+dependencies = ["fastapi>=0.115,<1", "uvicorn>=0.34,<1", "pydantic>=2.10,<3", "httpx>=0.28,<1", "numpy>=2.2,<3", "python-multipart>=0.0.20,<1"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.3,<10", "pytest-cov>=6,<8", "ruff>=0.11,<1", "pip-audit>=2.9,<3", "jsonschema>=4.23,<5"]
+
+[project.scripts]
+consignai = "consignai.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["packages", "."]
+include = ["consignai*", "apps.api*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["packages", "."]
+
+[tool.ruff]
+line-length = 110
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I"]

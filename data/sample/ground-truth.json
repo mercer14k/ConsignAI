@@ -1,0 +1,27 @@
+[
+  {
+    "location_id": "c000",
+    "sku": "sku0000",
+    "kind": "variance"
+  },
+  {
+    "location_id": "c001",
+    "sku": "sku0002",
+    "kind": "usage_spike"
+  },
+  {
+    "location_id": "c002",
+    "sku": "sku0004",
+    "kind": "inactive"
+  },
+  {
+    "location_id": "c003",
+    "sku": "sku0006",
+    "kind": "shortage"
+  },
+  {
+    "location_id": "c004",
+    "sku": "sku0008",
+    "kind": "overallocated"
+  }
+]

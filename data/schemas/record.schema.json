@@ -1,0 +1,435 @@
+{
+  "$defs": {
+    "Location": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "maxLength": 120,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Id",
+          "type": "string"
+        },
+        "source_id": {
+          "maxLength": 120,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Source Id",
+          "type": "string"
+        },
+        "ingested_at": {
+          "format": "date-time",
+          "title": "Ingested At",
+          "type": "string"
+        },
+        "validation_status": {
+          "const": "valid",
+          "default": "valid",
+          "title": "Validation Status",
+          "type": "string"
+        },
+        "lineage": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "title": "Lineage",
+          "type": "object"
+        },
+        "record_type": {
+          "const": "location",
+          "default": "location",
+          "title": "Record Type",
+          "type": "string"
+        },
+        "name": {
+          "maxLength": 100,
+          "minLength": 1,
+          "title": "Name",
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "enterprise",
+            "warehouse",
+            "contractor",
+            "field"
+          ],
+          "title": "Kind",
+          "type": "string"
+        },
+        "market": {
+          "maxLength": 50,
+          "minLength": 1,
+          "title": "Market",
+          "type": "string"
+        },
+        "owner_id": {
+          "default": "enterprise",
+          "maxLength": 120,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Owner Id",
+          "type": "string"
+        },
+        "parent_id": {
+          "anyOf": [
+            {
+              "maxLength": 120,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9_.:-]+$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Parent Id"
+        },
+        "capacity_units": {
+          "default": 1000000,
+          "minimum": 0,
+          "title": "Capacity Units",
+          "type": "integer"
+        },
+        "transfer_enabled": {
+          "default": true,
+          "title": "Transfer Enabled",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "source_id",
+        "ingested_at",
+        "name",
+        "kind",
+        "market"
+      ],
+      "title": "Location",
+      "type": "object"
+    },
+    "Material": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "maxLength": 120,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Id",
+          "type": "string"
+        },
+        "source_id": {
+          "maxLength": 120,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Source Id",
+          "type": "string"
+        },
+        "ingested_at": {
+          "format": "date-time",
+          "title": "Ingested At",
+          "type": "string"
+        },
+        "validation_status": {
+          "const": "valid",
+          "default": "valid",
+          "title": "Validation Status",
+          "type": "string"
+        },
+        "lineage": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "title": "Lineage",
+          "type": "object"
+        },
+        "record_type": {
+          "const": "material",
+          "default": "material",
+          "title": "Record Type",
+          "type": "string"
+        },
+        "name": {
+          "maxLength": 100,
+          "minLength": 1,
+          "title": "Name",
+          "type": "string"
+        },
+        "category": {
+          "maxLength": 50,
+          "minLength": 1,
+          "title": "Category",
+          "type": "string"
+        },
+        "unit": {
+          "default": "ea",
+          "enum": [
+            "ea",
+            "m"
+          ],
+          "title": "Unit",
+          "type": "string"
+        },
+        "unit_cost_cents": {
+          "maximum": 100000000,
+          "minimum": 0,
+          "title": "Unit Cost Cents",
+          "type": "integer"
+        },
+        "lead_time_days": {
+          "maximum": 180,
+          "minimum": 1,
+          "title": "Lead Time Days",
+          "type": "integer"
+        },
+        "pack_size": {
+          "maximum": 10000,
+          "minimum": 1,
+          "title": "Pack Size",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "id",
+        "source_id",
+        "ingested_at",
+        "name",
+        "category",
+        "unit_cost_cents",
+        "lead_time_days",
+        "pack_size"
+      ],
+      "title": "Material",
+      "type": "object"
+    },
+    "Movement": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "maxLength": 120,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Id",
+          "type": "string"
+        },
+        "source_id": {
+          "maxLength": 120,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Source Id",
+          "type": "string"
+        },
+        "ingested_at": {
+          "format": "date-time",
+          "title": "Ingested At",
+          "type": "string"
+        },
+        "validation_status": {
+          "const": "valid",
+          "default": "valid",
+          "title": "Validation Status",
+          "type": "string"
+        },
+        "lineage": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "title": "Lineage",
+          "type": "object"
+        },
+        "record_type": {
+          "const": "movement",
+          "default": "movement",
+          "title": "Record Type",
+          "type": "string"
+        },
+        "day": {
+          "format": "date",
+          "title": "Day",
+          "type": "string"
+        },
+        "sku": {
+          "maxLength": 120,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Sku",
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "receipt",
+            "issue",
+            "transfer",
+            "usage",
+            "adjustment"
+          ],
+          "title": "Kind",
+          "type": "string"
+        },
+        "quantity": {
+          "maximum": 10000000,
+          "minimum": -10000000,
+          "title": "Quantity",
+          "type": "integer"
+        },
+        "from_location": {
+          "anyOf": [
+            {
+              "maxLength": 120,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9_.:-]+$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "From Location"
+        },
+        "to_location": {
+          "anyOf": [
+            {
+              "maxLength": 120,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9_.:-]+$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "To Location"
+        },
+        "reference": {
+          "default": "",
+          "maxLength": 200,
+          "title": "Reference",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "source_id",
+        "ingested_at",
+        "day",
+        "sku",
+        "kind",
+        "quantity"
+      ],
+      "title": "Movement",
+      "type": "object"
+    },
+    "Snapshot": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "maxLength": 120,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Id",
+          "type": "string"
+        },
+        "source_id": {
+          "maxLength": 120,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Source Id",
+          "type": "string"
+        },
+        "ingested_at": {
+          "format": "date-time",
+          "title": "Ingested At",
+          "type": "string"
+        },
+        "validation_status": {
+          "const": "valid",
+          "default": "valid",
+          "title": "Validation Status",
+          "type": "string"
+        },
+        "lineage": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "title": "Lineage",
+          "type": "object"
+        },
+        "record_type": {
+          "const": "snapshot",
+          "default": "snapshot",
+          "title": "Record Type",
+          "type": "string"
+        },
+        "day": {
+          "format": "date",
+          "title": "Day",
+          "type": "string"
+        },
+        "sku": {
+          "maxLength": 120,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Sku",
+          "type": "string"
+        },
+        "location_id": {
+          "maxLength": 120,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Location Id",
+          "type": "string"
+        },
+        "on_hand": {
+          "maximum": 100000000,
+          "minimum": 0,
+          "title": "On Hand",
+          "type": "integer"
+        },
+        "reserved": {
+          "default": 0,
+          "maximum": 100000000,
+          "minimum": 0,
+          "title": "Reserved",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "id",
+        "source_id",
+        "ingested_at",
+        "day",
+        "sku",
+        "location_id",
+        "on_hand"
+      ],
+      "title": "Snapshot",
+      "type": "object"
+    }
+  },
+  "discriminator": {
+    "mapping": {
+      "location": "#/$defs/Location",
+      "material": "#/$defs/Material",
+      "movement": "#/$defs/Movement",
+      "snapshot": "#/$defs/Snapshot"
+    },
+    "propertyName": "record_type"
+  },
+  "oneOf": [
+    {
+      "$ref": "#/$defs/Location"
+    },
+    {
+      "$ref": "#/$defs/Material"
+    },
+    {
+      "$ref": "#/$defs/Movement"
+    },
+    {
+      "$ref": "#/$defs/Snapshot"
+    }
+  ]
+}

@@ -1,0 +1,106 @@
+{
+  "generated_at": "2026-09-28T02:18:08.450586+00:00",
+  "config": {
+    "seed": 42,
+    "contractors": 100,
+    "skus": 500,
+    "days": 365,
+    "slots": 8
+  },
+  "hardware": {
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "machine": "arm64",
+    "processor": "arm",
+    "python": "3.12.14",
+    "numpy": "2.5.3"
+  },
+  "model": {
+    "runtime": "none",
+    "model": null
+  },
+  "algorithm_version": "ledger-1.0/robust-mean-1.0/rules-1.0",
+  "dataset": {
+    "records": 891710,
+    "positions": 1616,
+    "contractors": 100,
+    "skus": 500,
+    "days": 365
+  },
+  "performance": {
+    "generate_validate_import_seconds": 38.347,
+    "analysis_seconds": 2.919,
+    "total_seconds": 41.329,
+    "peak_rss_mib": 145.1,
+    "rss_scope": "whole benchmark process including independent replay and forecast evaluation"
+  },
+  "reconciliation": {
+    "correct": 1616,
+    "total": 1616,
+    "accuracy": 1.0
+  },
+  "detection": {
+    "precision": 0.975609756097561,
+    "recall": 1.0,
+    "false_positive_rate": 0.00037688442211055275,
+    "tp": 120,
+    "fp": 3,
+    "fn": 0,
+    "tn": 7957,
+    "by_rule": {
+      "variance": {
+        "tp": 20,
+        "fp": 0,
+        "fn": 0
+      },
+      "usage_spike": {
+        "tp": 20,
+        "fp": 0,
+        "fn": 0
+      },
+      "inactive": {
+        "tp": 20,
+        "fp": 0,
+        "fn": 0
+      },
+      "shortage": {
+        "tp": 40,
+        "fp": 3,
+        "fn": 0
+      },
+      "overallocated": {
+        "tp": 20,
+        "fp": 0,
+        "fn": 0
+      }
+    },
+    "unexpected": [
+      [
+        "c081",
+        "sku0148",
+        "shortage"
+      ],
+      [
+        "c086",
+        "sku0188",
+        "shortage"
+      ],
+      [
+        "c090",
+        "sku0220",
+        "shortage"
+      ]
+    ],
+    "missed": []
+  },
+  "forecast": {
+    "wape": 0.07827485609162661,
+    "mae_7d_units": 2.171209218106996,
+    "windows": 2430,
+    "method": "28-day winsorized mean; three rolling 7-day holdouts; zero-stock windows excluded"
+  },
+  "redistribution": {
+    "proposals": 22,
+    "violations": [],
+    "valid": true
+  }
+}

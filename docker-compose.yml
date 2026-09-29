@@ -1,0 +1,47 @@
+services:
+  api:
+    build: .
+    environment:
+      CONSIGNAI_DB: /app/var/${INVENTORY_DB_FILE:-consignai.db}
+      APP_MODE: ${APP_MODE:-demo}
+      DEMO_SEED: ${DEMO_SEED:-true}
+      WEEKLY_JOBS: ${WEEKLY_JOBS:-true}
+      OLLAMA_BASE_URL: ${OLLAMA_BASE_URL:-http://host.docker.internal:11434}
+      READ_API_KEY: ${READ_API_KEY:-}
+      WRITE_API_KEY: ${WRITE_API_KEY:-}
+    extra_hosts:
+      - 'host.docker.internal:host-gateway'
+    volumes:
+      - inventory:/app/var
+    ports:
+      - '127.0.0.1:8077:8000'
+    healthcheck:
+      test: ['CMD', 'python', '-c', "import urllib.request; urllib.request.urlopen('http://localhost:8000/ready')"]
+      interval: 10s
+      timeout: 5s
+      retries: 24
+      start_period: 120s
+    security_opt: ['no-new-privileges:true']
+    cap_drop: [ALL]
+    restart: unless-stopped
+  web:
+    build: ./apps/web
+    ports:
+      - '127.0.0.1:8080:8080'
+    depends_on:
+      api:
+        condition: service_healthy
+    security_opt: ['no-new-privileges:true']
+    cap_drop: [ALL]
+    restart: unless-stopped
+  ollama:
+    image: ollama/ollama:0.34.4
+    profiles: ['ai']
+    environment:
+      OLLAMA_NO_CLOUD: '1'
+    volumes:
+      - models:/root/.ollama
+    security_opt: ['no-new-privileges:true']
+volumes:
+  inventory:
+  models:

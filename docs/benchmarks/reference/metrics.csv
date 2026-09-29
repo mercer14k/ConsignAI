@@ -1,0 +1,7 @@
+metric,value
+reconciliation_accuracy,1.0
+precision,0.975609756097561
+recall,1.0
+false_positive_rate,0.00037688442211055275
+forecast_wape,0.07827485609162661
+analysis_seconds,2.918980000016745

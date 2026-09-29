@@ -1,0 +1,53 @@
+{
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "python": "3.12.14",
+  "run_id": "bd55aba2-90cc-481e-8587-b9fc8e8cf1be",
+  "dataset_version": "1",
+  "state_unchanged": true,
+  "results": [
+    {
+      "alert_id": "2025-12-31:c034:sku0272:shortage",
+      "explanation": {
+        "status": "abstained",
+        "summary": "The available evidence does not support a reliable explanation. Collect and verify the missing source records.",
+        "evidence_ids": [
+          "synthetic-v1-s42-c100-k500-d365-p8:s:c034:sku0272:0",
+          "synthetic-v1-s42-c100-k500-d365-p8:s:c034:sku0272:364"
+        ],
+        "next_action": "collect_evidence"
+      },
+      "mode": "local_ai",
+      "telemetry": {
+        "trace_id": "",
+        "runtime": "ollama",
+        "model": "qwen2.5:1.5b",
+        "template_version": "evidence-1.1",
+        "tool_calls": [],
+        "retry_count": 0,
+        "validation_failures": [],
+        "input_source_ids": [
+          "synthetic-v1-s42-c100-k500-d365-p8"
+        ],
+        "evidence_ids": [
+          "synthetic-v1-s42-c100-k500-d365-p8:s:c034:sku0272:0",
+          "synthetic-v1-s42-c100-k500-d365-p8:s:c034:sku0272:364"
+        ],
+        "config": {
+          "temperature": 0,
+          "seed": 42,
+          "num_predict": 512,
+          "think": false
+        },
+        "tokens": 128,
+        "prompt_tokens": 348,
+        "model_returned": "qwen2.5:1.5b",
+        "latency_ms": 1587.23,
+        "mode": "local_ai"
+      }
+    }
+  ],
+  "runtime_version": "0.34.4",
+  "installed_model_digests": {
+    "qwen2.5:1.5b": "65ec06548149b04c096a120e4a6da9d4017ea809c91734ea5631e89f96ddc57b"
+  }
+}

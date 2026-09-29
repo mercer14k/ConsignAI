@@ -1,0 +1,93 @@
+{
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "python": "3.12.14",
+  "run_id": "01b0bfe2-2f95-4c1e-9a1f-b4e34008466f",
+  "dataset_version": "1",
+  "state_unchanged": true,
+  "results": [
+    {
+      "alert_id": "2025-12-31:c034:sku0272:shortage",
+      "explanation": {
+        "status": "explained",
+        "summary": "0.0 days of available supply against 7 days replenishment lead time.",
+        "evidence_ids": [
+          "synthetic-v1-s42-c100-k500-d365-p8:s:c034:sku0272:0",
+          "synthetic-v1-s42-c100-k500-d365-p8:s:c034:sku0272:364"
+        ],
+        "next_action": "review_transfer"
+      },
+      "mode": "deterministic_fallback",
+      "telemetry": {
+        "trace_id": "",
+        "runtime": "ollama",
+        "model": "qwen3:8b",
+        "template_version": "evidence-1.0",
+        "tool_calls": [],
+        "retry_count": 0,
+        "validation_failures": [
+          {
+            "type": "JSONDecodeError",
+            "reason": "Extra data: line 3 column 1 (char 433)"
+          }
+        ],
+        "input_source_ids": [
+          "synthetic-v1-s42-c100-k500-d365-p8"
+        ],
+        "evidence_ids": [
+          "synthetic-v1-s42-c100-k500-d365-p8:s:c034:sku0272:0",
+          "synthetic-v1-s42-c100-k500-d365-p8:s:c034:sku0272:364"
+        ],
+        "config": {
+          "temperature": 0,
+          "seed": 42
+        },
+        "latency_ms": 17720.51,
+        "mode": "deterministic_fallback"
+      }
+    },
+    {
+      "alert_id": "2025-12-31:c049:sku0392:shortage",
+      "explanation": {
+        "status": "explained",
+        "summary": "0.0 days of available supply against 7 days replenishment lead time.",
+        "evidence_ids": [
+          "synthetic-v1-s42-c100-k500-d365-p8:s:c049:sku0392:0",
+          "synthetic-v1-s42-c100-k500-d365-p8:s:c049:sku0392:364"
+        ],
+        "next_action": "review_transfer"
+      },
+      "mode": "deterministic_fallback",
+      "telemetry": {
+        "trace_id": "",
+        "runtime": "ollama",
+        "model": "qwen3:8b",
+        "template_version": "evidence-1.0",
+        "tool_calls": [],
+        "retry_count": 0,
+        "validation_failures": [
+          {
+            "type": "JSONDecodeError",
+            "reason": "Extra data: line 3 column 1 (char 451)"
+          }
+        ],
+        "input_source_ids": [
+          "synthetic-v1-s42-c100-k500-d365-p8"
+        ],
+        "evidence_ids": [
+          "synthetic-v1-s42-c100-k500-d365-p8:s:c049:sku0392:0",
+          "synthetic-v1-s42-c100-k500-d365-p8:s:c049:sku0392:364"
+        ],
+        "config": {
+          "temperature": 0,
+          "seed": 42
+        },
+        "latency_ms": 17341.18,
+        "mode": "deterministic_fallback"
+      }
+    }
+  ],
+  "runtime_version": "0.34.4",
+  "installed_model_digests": {
+    "qwen3:8b": "500a1f067a9f782620b40bee6f7b0c89e17ae61f686b92c24933e4ca4b2b8b41"
+  }
+}
